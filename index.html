@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Windward Pricing Slider</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+</style>
+</head>
+
+<body>
+
+<!-- Batch/Immediate Slider -->  
+
+  <!-- Includes the radio buttons for the Immediate and Batch Range Slider -->
+  
+  <p id="recommend"> </p>  
+  
+<p id = "batch/immediate" style="font-size: 90%">
+  <input type = "radio" id="immediate" onclick="showDivBatch()" name="batch/immediate" checked="checked"> <label for="immediate"> Immediate </label>
+  <input type = "radio" id="batch" onclick="showDivBatch()" name="batch/immediate"> <label for="batch"> Batch </label>
+</p>
+  
+  <div class="default">
+  <span class="default"> Pages Per Month: <span id="batchNum" style="font-weight: 700;"> </span> <span id="immediateNum" style="font-weight: 700;"> </span> </span>
+  </div>
+  
+  <!-- The Batch Range Slider and Immediate Range Slider, both with a Minimum of 5000 and a Maximum of 500000, with a step size of 5000 -->
+  
+<div class="batch_slider"> 
+  <input type="range" min="5000" max="500000" value="5000" step="5000" class="slider" id="batchRange">  
+</div>
+  
+<div class="immediate_slider"> 
+  <input type="range" min="5000" max="500000" value="5000" step="5000" class="slider" id="immediateRange">  
+</div>
+
+  <div class="box-minmax">
+    <span id="immediateBatchRangeMin">5,000</span> <span>500,000+</span>
+  </div>
+  
+  <br />
+  
+  <!-- Max Pages In 5 Minutes -->
+  
+  <!-- Includes the html id for the range slider value to be placed -->
+  
+	<div class="hoursSlider" id="hoursSlider"> <span class="hoursSliderRange"> Max Pages In 8 Hours: <span id="hoursNum" style="font-weight: 700;"> </span> </span> </div>	
+	
+	<div class="hours_slider"> 
+  <input type="range" min="5000" max="500000" value="5000" step="5000" class="slider" id="hoursRange">  
+</div>
+	
+	
+  <div class="minutesSlider" id="minutesSlider">
+  <span class="minutesSliderRange">Max Pages In 5 Minutes: <span id="minNum" style="font-weight: 700;"> </span> </span>
+  </div>
+    
+  <!-- The Pages in 5 Minutes Range Slider with a minimum of 5000, maximum of 500000, and step size of 5000 -->
+
+  <div class="minutes_slider"> 
+  <input type="range" min="5000" max="500000" value="5000" step="5000" class="slider" id="minutesRange">  
+</div>
+  
+  
+  <div class="box-minmax">
+    <span>5,000</span> <span id="hoursMinutesRangeMax">500,000+</span>
+  </div>
+  
+    <br />
+  
+  <!-- Java/.NET/restFul Slider -->
+  
+  <!-- Includes the html id for the range slider value to be placed -->
+  <div class="default">
+  <span class="default"># of Servers: <span id="serverNum" style="font-weight: 700;"> </span> </span>
+  </div>
+
+  <!-- The Server Range Slider with a minimum of 1, maximum of 12, and step size of 1 -->
+  <div class="engine_slider">
+    <input type="range" min="1" max="12" value="1" step="1" class="slider" id="serverRange">
+  </div>
+  
+  <div class="box-minmax">
+    <span>1</span> <span>12</span>
+  </div>
+  
+  <br />
+
+  <!-- # Of Designers -->
+  
+  <!-- Includes the html id for the range slider value to be placed -->
+  <div class="default">
+  <span class="default"># of Designers: <span id="designerNum" style="font-weight: 700;"> </span> </span>
+  </div>
+  
+  <!-- The Designer Range Slider with a minimum of 1, maxiumum of 50, and step size of 1 -->
+  <div class="designer_slider">
+    <input type="range" min="1" max="50" value="1" step="1" class="slider" id="designerRange">
+  </div>
+  
+  <div class="box-minmax">
+    <span>1</span> <span>50</span>
+  </div>
+  
+  <section>
+  <!--for demo wrap-->
+
+  <div class="tbl-content">
+      <table cellpadding="0" cellspacing="0" border="0" id="table">
+          <tbody>
+              <tr style="background: #ffffff; vertical-align: center; line-height: 1em;">
+                  <td class="whitespace" style="font-weight: bold;"> </td>
+                  <td class="monthly" style="font-weight: bold;">Monthly</td>
+                  <td class="quarterly" style="font-weight: bold;">Quarterly</td>
+                  <td class="yearly" style="font-weight: bold;">Annually</td>
+
+                  <div class="tbl-content">
+
+                      <table cellpadding="0" cellspacing="0" border="0" id="tableIn">
+
+                          <tbody>
+                              <tr><th colspan="4" class="product"> Pay Per Report <br /> <span id="scoutPlan"> Bronze Plan </span> </th></tr>
+                          <td class="cores">
+                              <div class="tooltip">
+                                  Designers: <span id="scoutDesigners"> </span> <br><span style="font-weight: bold;">Total</span>
+                                                                                    <span class="tooltiptext">Pay per Document offers a set number of designer installs and pricing is based on the number of reports generated, irrespective of the number of servers used.</span>
+                              </div>
+                          </td>
+                          <td class="monthly">
+                              <span class="designersScoutMonthly" id="designersScoutMonthly"> [Designers] </span>
+                              <br />
+                              <span class="scoutTotalMonthly" id="scoutTotalMonthly" style="font-weight: 700;"> [Total] </span>
+                          </td>
+                          <td class="quarterly">
+                              <span class="designersScoutQuarterly" id="designersScoutQuarterly"> [Designers] </span>
+                              <br />
+                              <span class="scoutTotalQuarterly" id="scoutTotalQuarterly" style="font-weight: 700;"> [Total] </span>
+                          </td>
+                          <td class="annually">
+                              <span class="designersScoutAnnually" id="designersScoutAnnually"> [Designers] </span>
+                              <br />
+                              <span class="scoutTotalAnnually" id="scoutTotalAnnually" style="font-weight: 700;"> [Total] </span>
+                          </td>
+                          </td>
+              </tr>
+              <tr><th colspan="4" class="product">Pay Per Server</th></tr>
+          <td class="cores">
+              <div class="tooltip">
+                  Designers: <span id="customDesigners"> </span><br>Servers: <span id="customServers"> </span> <br> Cores: <span id="customCores"> </span> <br /> <span style="font-weight: bold">Total</span>
+                                                                                                                                                                  <span class="tooltiptext">With this subscription type, pricing is based on the number of servers used, irrespective of the number of documents generated.</span>
+              </div>
+          </td>
+          <td class="monthly">
+              <span class="designersCustomMonthly" id="designersCustomMonthly"> [Designers] </span>
+              <br />
+              <span class="serversCustomMonthly" id="serversCustomMonthly"> [Servers] </span>
+              <br />
+              <span class="coresCustomMonthly" id="coresCustomMonthly"> [Cores] </span>
+              <br />
+              <span class="customTotalMonthly" id="customTotalMonthly" style="font-weight: 700;"> [Total] </span>
+          </td>
+          <td class="quarterly">
+              <span class="designersCustomQuarterly" id="designersCustomQuarterly"> [Designers] </span>
+              <br />
+              <span class="serversCustomQuarterly" id="serversCustomQuarterly"> [Servers] </span>
+              <br />
+              <span class="coresCustomQuarterly" id="coresCustomQuarterly"> [Cores] </span>
+              <br />
+              <span class="customTotalQuarterly" id="customTotalQuarterly" style="font-weight: 700;"> [Total] </span>
+          </td>
+          <td class="annually">
+              <span class="designersCustomAnnually" id="designersCustomAnnually"> [Designers] </span>
+              <br />
+              <span class="serversCustomAnnually" id="serversCustomAnnually"> [Servers] </span>
+              <br />
+              <span class="coresCustomAnnually" id="coresCustomAnnually"> [Cores] </span>
+              <br />
+              <span class="customTotalAnnually" id="customTotalAnnually" style="font-weight: 700;"> [Total] </span>
+          </td>
+          </tr>
+
+          <tr><th colspan="4" class="product">Windward Recommended <br /> <span id="serverOrReport"> Pay Per Report </span> </th></tr>
+          <tr id="windwardRecommended">
+              <td class="cores">
+                  <div class="tooltip">
+                      Designers: <span id="windwardRecommendedDesigners"> </span>
+                      <br />
+                      Servers: <span id="windwardRecommendedServers">  </span>
+                      <br />
+                      Cores: <span id="windwardRecommendedCores"> </span>
+                      <br />
+                      <span id="windwardRecommendedTotal" style="font-weight: 700;"> Total </span>
+
+                      <span class="tooltiptext">For the given amount of pages generated, Windward recommends this solution</span>
+                  </div>
+              </td>
+              <td class="monthly">
+                  <span id="windwardDesignerPriceMonthly"> [Monthly] </span>
+                  <br />
+                  <span id="windwardServerPriceMonthly"> </span>
+                  <br />
+                  <span id="windwardCorePriceMonthly"> </span>
+                  <br />
+                  <span id="windwardTotalPriceMonthly" style="font-weight: 700;"> </span>
+              </td>
+              <td class="quarterly">
+                  <span id="windwardDesignerPriceQuarterly"> [Quarterly] </span>
+                  <br />
+                  <span id="windwardServerPriceQuarterly"> </span>
+                  <br />
+                  <span id="windwardCorePriceQuarterly"> </span>
+                  <br />
+                  <span id="windwardTotalPriceQuarterly" style="font-weight: 700;"> </span>
+              </td>
+              <td class="annually">
+                  <span id="windwardDesignerPriceAnnually"> [Annually] </span>
+                  <br />
+                  <span id="windwardServerPriceAnnually"> </span>
+                  <br />
+                  <span id="windwardCorePriceAnnually"> </span>
+                  <br />
+                  <span id="windwardTotalPriceAnnually" style="font-weight: 700;"> </span>
+              </td>
+          </tr>
+          </tbody>
+      </table>
+  </div>
+    <button class="button">Learn More</button>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</body>
+</html>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+</body>
+
+</html>
