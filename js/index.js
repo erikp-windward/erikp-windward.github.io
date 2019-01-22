@@ -1,4 +1,4 @@
-//Pricing Page Slider For Windward Studios (Made By Erik Pohle - 1/22/2019)
+//Pricing Page Slider For Windward Studios (Made By Erik Pohle - 1/22/2019) FINAL
 
 //All Prices To Be Changed
 var pricePerDesignerMonthly = 60;
