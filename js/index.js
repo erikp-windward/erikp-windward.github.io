@@ -58,13 +58,13 @@ var designerPriceAnnually = 0;
 //updateServerPrices(numServers);
 
 //Handles highlighting table rows
-var highlightColor = "rgba(5, 166, 240, 0.6)";
+var defaultColor = "f2f2f2";
+var highlightColor = "rgba(190, 222, 244, 1)";
 var highlightScout = document.getElementById("tableIn");
-highlightScout.rows[0].style.backgroundColor = highlightColor;
-highlightScout.rows[1].style.backgroundColor = highlightColor;
+highlightScout.style.backgroundColor = highlightColor;
 
 //Print the value of each range slider into the output text. Default values only. Not updated here.
-document.getElementById("batchNum").innerHTML = Number(batchRange.value).toLocaleString(); 
+document.getElementById("batchNum").innerHTML = Number(batchRange.value).toLocaleString();
 document.getElementById("immediateNum").innerHTML = Number(immediateRange.value).toLocaleString();
 document.getElementById("hoursNum").innerHTML = Number(hoursRange.value).toLocaleString();
 document.getElementById("minNum").innerHTML = Number(minutesRange.value).toLocaleString();
@@ -74,36 +74,30 @@ document.getElementById("designerNum").innerHTML = designerRange.value;
 var maxPages = 5000;
 
 //Update the current slider value for batch range slider (each time you drag the slider handle).
-batchRange.oninput = function() {
+batchRange.oninput = function () {
 
-	//Print new value to corresponding html id.
-	document.getElementById("batchNum").innerHTML = Number(this.value).toLocaleString();
+    //Print new value to corresponding html id.
+    document.getElementById("batchNum").innerHTML = Number(this.value).toLocaleString();
 
     //Make max slider range value for both Batch Range Slider and Immediate Range Slider equal to 5 Minutes Range Slider Current Value
     document.getElementById("hoursRange").setAttribute("max", this.value);
     document.getElementById("minutesRange").setAttribute("max", this.value);
     document.getElementById("hoursMinutesRangeMax").innerHTML = Number(this.value).toLocaleString();
 
-	//Update prices
-	var highlightScout1 = document.getElementById("tableIn").rows[0];
-	var highlightScout2 = document.getElementById("tableIn").rows[1];
-	var highlightCustom1 = document.getElementById("tableIn").rows[2];
-	var highlightCustom2 = document.getElementById("tableIn").rows[3];
+    //Update prices
+    var highlightScout = document.getElementById("tableIn");
+    var highlightCustom = document.getElementById("product");
 
-	//If range value is less than or equal to 60,000 -> highlight Scout table row and rever Custom table row
+    //If range value is less than or equal to 60,000 -> highlight Scout table row and rever Custom table row
     if (this.value <= 60000) {
-		highlightScout1.style.backgroundColor = highlightColor;
-		highlightScout2.style.backgroundColor = highlightColor;
-		highlightCustom1.style.backgroundColor = "";
-		highlightCustom2.style.backgroundColor = "";
-	}
+        highlightScout.style.backgroundColor = highlightColor;
+        highlightCustom.style.backgroundColor = defaultColor;
+    }
 
-	//If range value is greater than 60,0000 -> highlight Custom table row and revert Scout table row
+    //If range value is greater than 60,0000 -> highlight Custom table row and revert Scout table row
     else {
-		highlightCustom1.style.backgroundColor = highlightColor;
-		highlightCustom2.style.backgroundColor = highlightColor;
-		highlightScout1.style.backgroundColor = "";
-		highlightScout2.style.backgroundColor = "";
+        highlightCustom.style.backgroundColor = highlightColor;
+        highlightScout.style.backgroundColor = defaultColor;
     }
 
     windwardRecommendsPagesBatch(this.value);
@@ -114,36 +108,30 @@ batchRange.oninput = function() {
 }
 
 //Update the current slider value for immediate range slider (each time you drag the slider handle).
-immediateRange.oninput = function() {
+immediateRange.oninput = function () {
 
-	//Print new value to corresponding html id.
-	document.getElementById("immediateNum").innerHTML = Number(this.value).toLocaleString();
+    //Print new value to corresponding html id.
+    document.getElementById("immediateNum").innerHTML = Number(this.value).toLocaleString();
 
     //Make max slider range value for both Batch Range Slider and Immediate Range Slider equal to 5 Minutes Range Slider Current Value
     document.getElementById("hoursRange").setAttribute("max", this.value);
     document.getElementById("minutesRange").setAttribute("max", this.value);
     document.getElementById("hoursMinutesRangeMax").innerHTML = Number(this.value).toLocaleString();
 
-	//Update prices
-	var highlightScout1 = document.getElementById("tableIn").rows[0];
-	var highlightScout2 = document.getElementById("tableIn").rows[1];
-	var highlightCustom1 = document.getElementById("tableIn").rows[2];
-	var highlightCustom2 = document.getElementById("tableIn").rows[3];
+    //Update prices
+    var highlightScout = document.getElementById("tableIn");
+    var highlightCustom = document.getElementById("product");
 
-	//If range value is less than or equal to 60,000 -> highlight Scout table row and revert Custom table row
-	if(this.value <= 60000) {
-		highlightScout1.style.backgroundColor = highlightColor;
-		highlightScout2.style.backgroundColor = highlightColor;
-		highlightCustom1.style.backgroundColor = "";
-		highlightCustom2.style.backgroundColor = "";
-	}
+    //If range value is less than or equal to 60,000 -> highlight Scout table row and rever Custom table row
+    if (this.value <= 60000) {
+        highlightScout.style.backgroundColor = highlightColor;
+        highlightCustom.style.backgroundColor = defaultColor;
+    }
 
-	//If range value is greater than 60,000 -> highlight Custom table row and rever Scout table row
-	else {
-		highlightCustom1.style.backgroundColor = highlightColor;
-		highlightCustom2.style.backgroundColor = highlightColor;
-		highlightScout1.style.backgroundColor = "";
-		highlightScout2.style.backgroundColor = "";
+    //If range value is greater than 60,0000 -> highlight Custom table row and revert Scout table row
+    else {
+        highlightCustom.style.backgroundColor = highlightColor;
+        highlightScout.style.backgroundColor = defaultColor;
     }
 
     windwardRecommendsPagesImmediate(this.value);
@@ -156,100 +144,90 @@ immediateRange.oninput = function() {
 //Update the current slider value for hours range slider (each time you drag the slider handle).
 hoursRange.oninput = function () {
 
-	//Print new value to corresponding html id.
-	var output = document.getElementById("hoursNum");
-	output.innerHTML = Number(this.value).toLocaleString();
-	
-	//Make max slider range value for both Batch Range Slider and Immediate Range Slider equal to 5 Minutes Range Slider Current Value
-	document.getElementById("batchRange").setAttribute("min", this.value);
-	document.getElementById("immediateRange").setAttribute("min", this.value);
-	document.getElementById("immediateBatchRangeMin").innerHTML = Number(this.value).toLocaleString();
-	document.getElementById("batchNum").innerHTML = Number(this.value).toLocaleString();
-	document.getElementById("immediateNum").innerHTML = Number(this.value).toLocaleString();
-	
-	var highlightScout1 = document.getElementById("tableIn").rows[0];
-	var highlightScout2 = document.getElementById("tableIn").rows[1];
-	var highlightCustom1 = document.getElementById("tableIn").rows[2];
-	var highlightCustom2 = document.getElementById("tableIn").rows[3];
+    //Print new value to corresponding html id.
+    var output = document.getElementById("hoursNum");
+    output.innerHTML = Number(this.value).toLocaleString();
 
-	//If range value is less than or equal to 60,000 -> highlight Scout table row and revert Custom table row
+    //Make max slider range value for both Batch Range Slider and Immediate Range Slider equal to 5 Minutes Range Slider Current Value
+    document.getElementById("batchRange").setAttribute("min", this.value);
+    document.getElementById("immediateRange").setAttribute("min", this.value);
+    document.getElementById("immediateBatchRangeMin").innerHTML = Number(this.value).toLocaleString();
+    document.getElementById("batchNum").innerHTML = Number(this.value).toLocaleString();
+    document.getElementById("immediateNum").innerHTML = Number(this.value).toLocaleString();
+
+    //Update prices
+    var highlightScout = document.getElementById("tableIn");
+    var highlightCustom = document.getElementById("product");
+
+    //If range value is less than or equal to 60,000 -> highlight Scout table row and rever Custom table row
     if (this.value <= 60000) {
-		highlightScout1.style.backgroundColor = highlightColor;
-		highlightScout2.style.backgroundColor = highlightColor;
-		highlightCustom1.style.backgroundColor = "";
-		highlightCustom2.style.backgroundColor = "";
-	}
+        highlightScout.style.backgroundColor = highlightColor;
+        highlightCustom.style.backgroundColor = defaultColor;
+    }
 
-	//If range value is greater than 60,0000 -> highlight Custom table row and revert Scout table row
-	else {
-		highlightCustom1.style.backgroundColor = highlightColor;
-		highlightCustom2.style.backgroundColor = highlightColor;
-		highlightScout1.style.backgroundColor = "";
-		highlightScout2.style.backgroundColor = "";
+    //If range value is greater than 60,0000 -> highlight Custom table row and revert Scout table row
+    else {
+        highlightCustom.style.backgroundColor = highlightColor;
+        highlightScout.style.backgroundColor = defaultColor;
     }
 
     windwardRecommendsPagesBatch(this.value);
 }
 
 //Update the current slider value for minute range slider (each time you drag the slider handle).
-minutesRange.oninput = function() {
+minutesRange.oninput = function () {
 
-	//Print new value to corresponding html id.
-	var output = document.getElementById("minNum");
-	output.innerHTML = Number(this.value).toLocaleString();
-	
-	//Make max slider range value for both Batch Range Slider and Immediate Range Slider equal to 5 Minutes Range Slider Current Value
-	document.getElementById("batchRange").setAttribute("min", this.value);
-	document.getElementById("immediateRange").setAttribute("min", this.value);
-	document.getElementById("immediateBatchRangeMin").innerHTML = Number(this.value).toLocaleString();
-	document.getElementById("batchNum").innerHTML = Number(this.value).toLocaleString();
-	document.getElementById("immediateNum").innerHTML = Number(this.value).toLocaleString();
-	
-	var highlightScout1 = document.getElementById("tableIn").rows[0];
-	var highlightScout2 = document.getElementById("tableIn").rows[1];
-	var highlightCustom1 = document.getElementById("tableIn").rows[2];
-	var highlightCustom2 = document.getElementById("tableIn").rows[3];
+    //Print new value to corresponding html id.
+    var output = document.getElementById("minNum");
+    output.innerHTML = Number(this.value).toLocaleString();
 
-	//If range value is less than or equal to 60,000 -> highlight Scout table row and revert Custom table row
-	if(this.value <= 60000) {
-		highlightScout1.style.backgroundColor = highlightColor;
-		highlightScout2.style.backgroundColor = highlightColor;
-        highlightCustom1.style.backgroundColor = "";
-		highlightCustom2.style.backgroundColor = "";
-	}
+    //Make max slider range value for both Batch Range Slider and Immediate Range Slider equal to 5 Minutes Range Slider Current Value
+    document.getElementById("batchRange").setAttribute("min", this.value);
+    document.getElementById("immediateRange").setAttribute("min", this.value);
+    document.getElementById("immediateBatchRangeMin").innerHTML = Number(this.value).toLocaleString();
+    document.getElementById("batchNum").innerHTML = Number(this.value).toLocaleString();
+    document.getElementById("immediateNum").innerHTML = Number(this.value).toLocaleString();
 
-	//If range value is greater than 60,000 -> highlight Custom table row and revert Scout table row
-	else {
-		highlightCustom1.style.backgroundColor = highlightColor;
-		highlightCustom2.style.backgroundColor = highlightColor;
-		highlightScout1.style.backgroundColor = "";
-		highlightScout2.style.backgroundColor = "";
+    //Update prices
+    var highlightScout = document.getElementById("tableIn");
+    var highlightCustom = document.getElementById("product");
+
+    //If range value is less than or equal to 60,000 -> highlight Scout table row and rever Custom table row
+    if (this.value <= 60000) {
+        highlightScout.style.backgroundColor = highlightColor;
+        highlightCustom.style.backgroundColor = defaultColor;
+    }
+
+    //If range value is greater than 60,0000 -> highlight Custom table row and revert Scout table row
+    else {
+        highlightCustom.style.backgroundColor = highlightColor;
+        highlightScout.style.backgroundColor = defaultColor;
     }
 
     windwardRecommendsPagesImmediate(this.value);
 }
 
 //Update the current slider value for server range slider (each time you drag the slider handle).
-serverRange.oninput = function() {
+serverRange.oninput = function () {
 
-	numServers = this.value;
-	//updateServerPrices(numServers);
+    numServers = this.value;
+    //updateServerPrices(numServers);
 
-	//Print new value to corresponding html id.
-	var output = document.getElementById("serverNum");
+    //Print new value to corresponding html id.
+    var output = document.getElementById("serverNum");
     output.innerHTML = this.value;
 
     payPerServer(maxPages);
 }
 
 //Update the current slider value for designer range slider (each time you drag the slider handle).
-designerRange.oninput = function() {
+designerRange.oninput = function () {
 
     numDesigners = this.value;
     //updateNumDesigners(numDesigners);
 
-	//Print new value to corresponding html id.
-	var output = document.getElementById("designerNum");
+    //Print new value to corresponding html id.
+    var output = document.getElementById("designerNum");
     output.innerHTML = this.value;
 
     var checkBatch = document.getElementById("batch");
@@ -268,12 +246,12 @@ designerRange.oninput = function() {
 }
 
 //Onload of the window, hide the batch range slider and the batch number. This way only the immediate range slider and immediate number is shown at first. Initialize any other values.
-window.onload = function() { 
-	document.getElementById("hoursRange").style.display = "none";
-	document.getElementById("hoursSlider").style.display = "none";
-	document.getElementById("batchRange").style.display = "none";
-	document.getElementById("batchNum").style.display = "none";
-	document.getElementById("batchRange").setAttribute("min", 5000);
+window.onload = function () {
+    document.getElementById("hoursRange").style.display = "none";
+    document.getElementById("hoursSlider").style.display = "none";
+    document.getElementById("batchRange").style.display = "none";
+    document.getElementById("batchNum").style.display = "none";
+    document.getElementById("batchRange").setAttribute("min", 5000);
     document.getElementById("immediateRange").setAttribute("min", 5000);
     document.getElementById("hoursRange").setAttribute("max", 5000);
     document.getElementById("minutesRange").setAttribute("max", 5000);
@@ -315,27 +293,27 @@ window.onload = function() {
 //Hide/Show the batch range slider and hide/show the immediate range slider.
 function showDivBatch() {
 
-	//Initialize variables from HTML side.
-	var checkBatch = document.getElementById("batch");
-	var batchRange = document.getElementById("batchRange");
-	var immediateRange = document.getElementById("immediateRange");
-	var immediateNum = document.getElementById("immediateNum");
-	var batchNum = document.getElementById("batchNum");
-	var hoursSlider = document.getElementById("hoursSlider");
-	var hoursSliderRange = document.getElementById("hoursRange");
-	var hoursSliderNum = document.getElementById("hoursNum");
-	var minutesSlider = document.getElementById("minutesSlider");
-	var minutesSliderRange = document.getElementById("minutesRange");
+    //Initialize variables from HTML side.
+    var checkBatch = document.getElementById("batch");
+    var batchRange = document.getElementById("batchRange");
+    var immediateRange = document.getElementById("immediateRange");
+    var immediateNum = document.getElementById("immediateNum");
+    var batchNum = document.getElementById("batchNum");
+    var hoursSlider = document.getElementById("hoursSlider");
+    var hoursSliderRange = document.getElementById("hoursRange");
+    var hoursSliderNum = document.getElementById("hoursNum");
+    var minutesSlider = document.getElementById("minutesSlider");
+    var minutesSliderRange = document.getElementById("minutesRange");
 
-	//Depending on which radio button is checked, immediate vs batch, show the corresponding range slider and value of the range slider
-	batchRange.style.display = checkBatch.checked ? "block" : "none";
-	batchNum.style.display = checkBatch.checked ? "inline-block" : "none";
-	immediateRange.style.display = checkBatch.checked ? "none" : "block";
-	immediateNum.style.display = checkBatch.checked ? "none" : "inline-block";
-	hoursSlider.style.display = checkBatch.checked ? "block" : "none";
-	hoursSliderRange.style.display = checkBatch.checked ? "block" : "none";
-	hoursSliderNum.style.display = checkBatch.checked ? "inline-block" : "none";
-	minutesSlider.style.display = checkBatch.checked ? "none" : "block";
+    //Depending on which radio button is checked, immediate vs batch, show the corresponding range slider and value of the range slider
+    batchRange.style.display = checkBatch.checked ? "block" : "none";
+    batchNum.style.display = checkBatch.checked ? "inline-block" : "none";
+    immediateRange.style.display = checkBatch.checked ? "none" : "block";
+    immediateNum.style.display = checkBatch.checked ? "none" : "inline-block";
+    hoursSlider.style.display = checkBatch.checked ? "block" : "none";
+    hoursSliderRange.style.display = checkBatch.checked ? "block" : "none";
+    hoursSliderNum.style.display = checkBatch.checked ? "inline-block" : "none";
+    minutesSlider.style.display = checkBatch.checked ? "none" : "block";
     minutesSliderRange.style.display = checkBatch.checked ? "none" : "block";
 
     if (checkBatch.checked) {
@@ -374,12 +352,10 @@ function showDivBatch() {
     
 	//Find the table that will be getting updated
 	var tableIn = document.getElementById("tableIn");
-
 	//Calculate prices based on Monthly/Quarterly/Annually Prices * the current number of designers selected
 	//designerPriceMonthly = numCurDesigner * pricePerDesignerMonthly;
 	//designerPriceQuarterly = numCurDesigner * pricePerDesignerQuarterly;
 	//designerPriceAnnually = numCurDesigner * pricePerDesignerAnnually;
-
 	//Update all table values that involved designers
 	document.getElementById("designersScoutMonthly").innerHTML = numCurDesigner;
     document.getElementById("designersScoutQuarterly").innerHTML = numCurDesigner;
@@ -387,20 +363,19 @@ function showDivBatch() {
     document.getElementById("designersCustomMonthly").innerHTML = numCurDesigner;
     document.getElementById("designersCustomQuarterly").innerHTML = numCurDesigner;
     document.getElementById("designersCustomAnnually").innerHTML = numCurDesigner;
-
 }*/
 
 //Update all the total prices of each column + row
 function updateTotal() {
-	document.getElementById("scoutTotalMonthly").innerHTML = "$" + (designerPriceMonthly + serverPriceMonthly).toLocaleString();
-	document.getElementById("scoutTotalQuarterly").innerHTML = "$" + (designerPriceQuarterly + serverPriceQuarterly).toLocaleString();
-	document.getElementById("scoutTotalAnnually").innerHTML = "$" + (designerPriceAnnually + serverPriceAnnually).toLocaleString();
-	document.getElementById("customTotalMonthly").innerHTML = "$" + (designerPriceMonthly + serverPriceMonthly).toLocaleString();
-	document.getElementById("customTotalQuarterly").innerHTML = "$" + (designerPriceQuarterly + serverPriceQuarterly).toLocaleString();
-	document.getElementById("customTotalAnnually").innerHTML = "$" + (designerPriceAnnually + serverPriceAnnually).toLocaleString();
-	
-	//Call function that determines if we have a better configuration for users selected number of designers and servers
-	//windwardRecommends();
+    document.getElementById("scoutTotalMonthly").innerHTML = "$" + (designerPriceMonthly + serverPriceMonthly).toLocaleString();
+    document.getElementById("scoutTotalQuarterly").innerHTML = "$" + (designerPriceQuarterly + serverPriceQuarterly).toLocaleString();
+    document.getElementById("scoutTotalAnnually").innerHTML = "$" + (designerPriceAnnually + serverPriceAnnually).toLocaleString();
+    document.getElementById("customTotalMonthly").innerHTML = "$" + (designerPriceMonthly + serverPriceMonthly).toLocaleString();
+    document.getElementById("customTotalQuarterly").innerHTML = "$" + (designerPriceQuarterly + serverPriceQuarterly).toLocaleString();
+    document.getElementById("customTotalAnnually").innerHTML = "$" + (designerPriceAnnually + serverPriceAnnually).toLocaleString();
+
+    //Call function that determines if we have a better configuration for users selected number of designers and servers
+    //windwardRecommends();
 }
 
 //Determine if there is a better configuration for users selected number of designers and servers
@@ -410,7 +385,6 @@ function updateTotal() {
 	//JavaScript doesn't support casting to Floats so by setting the fixed decimal places to 2,
 	//I am able to make my own Float
 	var num = (numServers / numDesigners).toFixed(2);
-
 	if(num > 1.00) {
 		document.getElementById("windwardRecommended").style.display = "table-row";
 		document.getElementById("windwardRecommendedServers").innerHTML = 1;
