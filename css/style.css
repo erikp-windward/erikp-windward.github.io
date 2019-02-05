@@ -30,7 +30,7 @@ input[type='radio'] {
 
 .box-minmax {
     margin: auto;
-    width: 46%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     font-size: 12px;
