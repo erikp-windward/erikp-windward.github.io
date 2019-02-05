@@ -40,27 +40,27 @@ input[type='radio'] {
 }
 
 .batch_slider {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
 }
 
 .immediate_slider {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
 }
 
 .engine_slider {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
 }
 
 .minutes_slider, .hours_slider {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
 }
 
 .designer_slider {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -198,7 +198,7 @@ table {
 
 .tbl-header {
     background-color: rgba(54, 61, 72,1);
-    width: 50%;
+    width: 100%;
     margin: auto;
     border: 0px solid rgba(54, 61, 72,1);
     text-align: center;
@@ -207,7 +207,7 @@ table {
 
 .tbl-content {
     height: auto;
-    width: 50%;
+    width: 100%;
     margin: auto;
     overflow-x: auto;
     margin-top: 0px;
