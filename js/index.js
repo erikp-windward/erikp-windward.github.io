@@ -428,45 +428,42 @@ function displayWindwardRecommends(servers, designers, cores) {
     document.getElementById("windwardDesignerPriceAnnually").innerHTML = "$" + (designers * pricePerDesignerAnnually).toLocaleString();
 
     /*
-     *  document.getElementById("serversCustomMonthly").innerHTML = "$" + (numServers * (customTotalMonthly_2Cores)).toLocaleString();
-        document.getElementById("serversCustomQuarterly").innerHTML = "$" + (numServers * (customTotalQuarterly_2Cores )).toLocaleString();
-        document.getElementById("serversCustomAnnually").innerHTML = "$" + (numServers * (customTotalAnnually_2Cores)).toLocaleString();
-        document.getElementById("customTotalMonthly").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerMonthly + customTotalMonthly_2Cores)).toLocaleString();
-        document.getElementById("customTotalQuarterly").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerQuarterly + customTotalQuarterly_2Cores)).toLocaleString();
-        document.getElementById("customTotalAnnually").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerAnnually + customTotalAnnually_2Cores)).toLocaleString();
+        document.getElementById("customTotalMonthly").innerHTML = "$" + ((numDesigners * pricePerDesignerMonthly) + numServers * (customTotalMonthly_2Cores)).toLocaleString();
+        document.getElementById("customTotalQuarterly").innerHTML = "$" + ((numDesigners * pricePerDesignerQuarterly) + numServers * (customTotalQuarterly_2Cores)).toLocaleString();
+        document.getElementById("customTotalAnnually").innerHTML = "$" + ((numDesigners * pricePerDesignerAnnually) + numServers * (customTotalAnnually_2Cores)).toLocaleString();
      * */
 
     if (cores == 2) {
         document.getElementById("windwardServerPriceMonthly").innerHTML = "$" + (servers * (customTotalMonthly_2Cores)).toLocaleString();
         document.getElementById("windwardServerPriceQuarterly").innerHTML = "$" + (servers * (customTotalQuarterly_2Cores)).toLocaleString();
         document.getElementById("windwardServerPriceAnnually").innerHTML = "$" + (servers * (customTotalAnnually_2Cores)).toLocaleString();
-        document.getElementById("windwardTotalPriceMonthly").innerHTML = "$" + (servers * (designers * pricePerDesignerMonthly + customTotalMonthly_2Cores)).toLocaleString();
-        document.getElementById("windwardTotalPriceQuarterly").innerHTML = "$" + (servers * (designers * pricePerDesignerQuarterly + customTotalQuarterly_2Cores)).toLocaleString();
-        document.getElementById("windwardTotalPriceAnnually").innerHTML = "$" + (servers * (designers * pricePerDesignerAnnually + customTotalAnnually_2Cores)).toLocaleString();
+        document.getElementById("windwardTotalPriceMonthly").innerHTML = "$" + (designers * pricePerDesignerMonthly + servers * (customTotalMonthly_2Cores)).toLocaleString();
+        document.getElementById("windwardTotalPriceQuarterly").innerHTML = "$" + (designers * pricePerDesignerQuarterly + servers * (customTotalQuarterly_2Cores)).toLocaleString();
+        document.getElementById("windwardTotalPriceAnnually").innerHTML = "$" + (designers * pricePerDesignerAnnually + servers * (customTotalAnnually_2Cores)).toLocaleString();
     }
     else if (cores == 4) {
         document.getElementById("windwardServerPriceMonthly").innerHTML = "$" + (servers * (customTotalMonthly_4Cores)).toLocaleString();
         document.getElementById("windwardServerPriceQuarterly").innerHTML = "$" + (servers * (customTotalQuarterly_4Cores)).toLocaleString();
         document.getElementById("windwardServerPriceAnnually").innerHTML = "$" + (servers * (customTotalAnnually_4Cores)).toLocaleString();
-        document.getElementById("windwardTotalPriceMonthly").innerHTML = "$" + (servers * (designers * pricePerDesignerMonthly + customTotalMonthly_4Cores)).toLocaleString();
-        document.getElementById("windwardTotalPriceQuarterly").innerHTML = "$" + (servers * (designers * pricePerDesignerQuarterly + customTotalQuarterly_4Cores)).toLocaleString();
-        document.getElementById("windwardTotalPriceAnnually").innerHTML = "$" + (servers * (designers * pricePerDesignerAnnually + customTotalAnnually_4Cores)).toLocaleString();
+        document.getElementById("windwardTotalPriceMonthly").innerHTML = "$" + (designers * pricePerDesignerMonthly + servers * (customTotalMonthly_4Cores)).toLocaleString();
+        document.getElementById("windwardTotalPriceQuarterly").innerHTML = "$" + (designers * pricePerDesignerQuarterly + servers * (customTotalQuarterly_4Cores)).toLocaleString();
+        document.getElementById("windwardTotalPriceAnnually").innerHTML = "$" + (designers * pricePerDesignerAnnually + servers * (customTotalAnnually_4Cores)).toLocaleString();
     }
     else if (cores == 6) {
         document.getElementById("windwardServerPriceMonthly").innerHTML = "$" + (servers * (customTotalMonthly_6Cores)).toLocaleString();
         document.getElementById("windwardServerPriceQuarterly").innerHTML = "$" + (servers * (customTotalQuarterly_6Cores)).toLocaleString();
         document.getElementById("windwardServerPriceAnnually").innerHTML = "$" + (servers * (customTotalAnnually_6Cores)).toLocaleString();
-        document.getElementById("windwardTotalPriceMonthly").innerHTML = "$" + (servers * (designers * pricePerDesignerMonthly + customTotalMonthly_6Cores)).toLocaleString();
-        document.getElementById("windwardTotalPriceQuarterly").innerHTML = "$" + (servers * (designers * pricePerDesignerQuarterly + customTotalQuarterly_6Cores)).toLocaleString();
-        document.getElementById("windwardTotalPriceAnnually").innerHTML = "$" + (servers * (designers * pricePerDesignerAnnually + customTotalAnnually_6Cores)).toLocaleString();
+        document.getElementById("windwardTotalPriceMonthly").innerHTML = "$" + (designers * pricePerDesignerMonthly + servers * (customTotalMonthly_6Cores)).toLocaleString();
+        document.getElementById("windwardTotalPriceQuarterly").innerHTML = "$" + (designers * pricePerDesignerQuarterly + servers * (customTotalQuarterly_6Cores)).toLocaleString();
+        document.getElementById("windwardTotalPriceAnnually").innerHTML = "$" + (designers * pricePerDesignerAnnually + servers * (customTotalAnnually_6Cores)).toLocaleString();
     }
     else {
         document.getElementById("windwardServerPriceMonthly").innerHTML = "$" + (servers * (customTotalMonthly_8Cores)).toLocaleString();
         document.getElementById("windwardServerPriceQuarterly").innerHTML = "$" + (servers * (customTotalQuarterly_8Cores)).toLocaleString();
         document.getElementById("windwardServerPriceAnnually").innerHTML = "$" + (servers * (customTotalAnnually_8Cores)).toLocaleString();
-        document.getElementById("windwardTotalPriceMonthly").innerHTML = "$" + (servers * (designers * pricePerDesignerMonthly + customTotalMonthly_8Cores)).toLocaleString();
-        document.getElementById("windwardTotalPriceQuarterly").innerHTML = "$" + (servers * (designers * pricePerDesignerQuarterly + customTotalQuarterly_8Cores)).toLocaleString();
-        document.getElementById("windwardTotalPriceAnnually").innerHTML = "$" + (servers * (designers * pricePerDesignerAnnually + customTotalAnnually_8Cores)).toLocaleString();
+        document.getElementById("windwardTotalPriceMonthly").innerHTML = "$" + (designers * pricePerDesignerMonthly + servers * (customTotalMonthly_8Cores)).toLocaleString();
+        document.getElementById("windwardTotalPriceQuarterly").innerHTML = "$" + (designers * pricePerDesignerQuarterly + servers * (customTotalQuarterly_8Cores)).toLocaleString();
+        document.getElementById("windwardTotalPriceAnnually").innerHTML = "$" + (designers * pricePerDesignerAnnually + servers * (customTotalAnnually_8Cores)).toLocaleString();
     }
 }
 
@@ -577,9 +574,9 @@ function payPerServer(maxPages) {
         document.getElementById("serversCustomMonthly").innerHTML = "$" + (numServers * (customTotalMonthly_2Cores)).toLocaleString();
         document.getElementById("serversCustomQuarterly").innerHTML = "$" + (numServers * (customTotalQuarterly_2Cores )).toLocaleString();
         document.getElementById("serversCustomAnnually").innerHTML = "$" + (numServers * (customTotalAnnually_2Cores)).toLocaleString();
-        document.getElementById("customTotalMonthly").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerMonthly + customTotalMonthly_2Cores)).toLocaleString();
-        document.getElementById("customTotalQuarterly").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerQuarterly + customTotalQuarterly_2Cores)).toLocaleString();
-        document.getElementById("customTotalAnnually").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerAnnually + customTotalAnnually_2Cores)).toLocaleString();
+        document.getElementById("customTotalMonthly").innerHTML = "$" + ((numDesigners * pricePerDesignerMonthly) + numServers * (customTotalMonthly_2Cores)).toLocaleString();
+        document.getElementById("customTotalQuarterly").innerHTML = "$" + ((numDesigners * pricePerDesignerQuarterly) + numServers * (customTotalQuarterly_2Cores)).toLocaleString();
+        document.getElementById("customTotalAnnually").innerHTML = "$" + ((numDesigners * pricePerDesignerAnnually) + numServers * (customTotalAnnually_2Cores)).toLocaleString();
     }
     else if (maxPages <= 100000) {
         document.getElementById("customDesigners").innerHTML = numDesigners;
@@ -591,9 +588,9 @@ function payPerServer(maxPages) {
         document.getElementById("serversCustomMonthly").innerHTML = "$" + (numServers * (customTotalMonthly_4Cores)).toLocaleString();
         document.getElementById("serversCustomQuarterly").innerHTML = "$" + (numServers * (customTotalQuarterly_4Cores)).toLocaleString();
         document.getElementById("serversCustomAnnually").innerHTML = "$" + (numServers * (customTotalAnnually_4Cores)).toLocaleString();
-        document.getElementById("customTotalMonthly").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerMonthly + customTotalMonthly_4Cores)).toLocaleString();
-        document.getElementById("customTotalQuarterly").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerQuarterly + customTotalQuarterly_4Cores)).toLocaleString();
-        document.getElementById("customTotalAnnually").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerAnnually + customTotalAnnually_4Cores)).toLocaleString();
+        document.getElementById("customTotalMonthly").innerHTML = "$" + ((numDesigners * pricePerDesignerMonthly) + numServers * (customTotalMonthly_4Cores)).toLocaleString();
+        document.getElementById("customTotalQuarterly").innerHTML = "$" + ((numDesigners * pricePerDesignerQuarterly) + numServers * (customTotalQuarterly_4Cores)).toLocaleString();
+        document.getElementById("customTotalAnnually").innerHTML = "$" + ((numDesigners * pricePerDesignerAnnually) + numServers * (customTotalAnnually_4Cores)).toLocaleString();
     }
     else if (maxPages <= 300000) {
         document.getElementById("customDesigners").innerHTML = numDesigners;
@@ -605,9 +602,9 @@ function payPerServer(maxPages) {
         document.getElementById("serversCustomMonthly").innerHTML = "$" + (numServers * (customTotalMonthly_6Cores)).toLocaleString();
         document.getElementById("serversCustomQuarterly").innerHTML = "$" + (numServers * (customTotalQuarterly_6Cores)).toLocaleString();
         document.getElementById("serversCustomAnnually").innerHTML = "$" + (numServers * (customTotalAnnually_6Cores)).toLocaleString();
-        document.getElementById("customTotalMonthly").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerMonthly + customTotalMonthly_6Cores)).toLocaleString();
-        document.getElementById("customTotalQuarterly").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerQuarterly + customTotalQuarterly_6Cores)).toLocaleString();
-        document.getElementById("customTotalAnnually").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerAnnually + customTotalAnnually_6Cores)).toLocaleString();
+        document.getElementById("customTotalMonthly").innerHTML = "$" + ((numDesigners * pricePerDesignerMonthly) + numServers * (customTotalMonthly_6Cores)).toLocaleString();
+        document.getElementById("customTotalQuarterly").innerHTML = "$" + ((numDesigners * pricePerDesignerQuarterly) + numServers * (customTotalQuarterly_6Cores)).toLocaleString();
+        document.getElementById("customTotalAnnually").innerHTML = "$" + ((numDesigners * pricePerDesignerAnnually) + numServers * (customTotalAnnually_6Cores)).toLocaleString();
 
     }
     else if (maxPages <= 500000) {
@@ -620,9 +617,9 @@ function payPerServer(maxPages) {
         document.getElementById("serversCustomMonthly").innerHTML = "$" + (numServers * (customTotalMonthly_8Cores)).toLocaleString();
         document.getElementById("serversCustomQuarterly").innerHTML = "$" + (numServers * (customTotalQuarterly_8Cores)).toLocaleString();
         document.getElementById("serversCustomAnnually").innerHTML = "$" + (numServers * (customTotalAnnually_8Cores)).toLocaleString();
-        document.getElementById("customTotalMonthly").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerMonthly + customTotalMonthly_8Cores)).toLocaleString();
-        document.getElementById("customTotalQuarterly").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerQuarterly + customTotalQuarterly_8Cores)).toLocaleString();
-        document.getElementById("customTotalAnnually").innerHTML = "$" + (numServers * (numDesigners * pricePerDesignerAnnually + customTotalAnnually_8Cores)).toLocaleString();
+        document.getElementById("customTotalMonthly").innerHTML = "$" + ((numDesigners * pricePerDesignerMonthly) + numServers * (customTotalMonthly_8Cores)).toLocaleString();
+        document.getElementById("customTotalQuarterly").innerHTML = "$" + ((numDesigners * pricePerDesignerQuarterly) + numServers * (customTotalQuarterly_8Cores)).toLocaleString();
+        document.getElementById("customTotalAnnually").innerHTML = "$" + ((numDesigners * pricePerDesignerAnnually) + numServers * (customTotalAnnually_8Cores)).toLocaleString();
     }
 }
 
