@@ -262,7 +262,7 @@ section {
 }
 
 @media screen and (max-width: 600px) {
-  td, td#component, td#total, td#ouput {
+  td, td#component, td#total, td#ouput, td#customDesigner {
     font-size: 12px;
   }
   
