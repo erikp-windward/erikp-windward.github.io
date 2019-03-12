@@ -57,10 +57,12 @@ var designerPriceAnnually = 0;
 //updateServerPrices(numServers);
 
 //Handles highlighting table rows
+/*
 var defaultColor = "f2f2f2";
 var highlightColor = "rgba(190, 222, 244, 1)";
 var highlightScout = document.getElementById("tableIn");
 highlightScout.style.backgroundColor = highlightColor;
+*/
 
 //Print the value of each range slider into the output text. Default values only. Not updated here.
 document.getElementById("batchNum").innerHTML = Number(batchRange.value).toLocaleString();
@@ -86,7 +88,7 @@ batchRange.oninput = function () {
     //Update prices
     var highlightScout = document.getElementById("tableIn");
     var highlightCustom = document.getElementById("product");
-
+	/*
     //If range value is less than or equal to 60,000 -> highlight Scout table row and rever Custom table row
     if (this.value <= 60000) {
         highlightScout.style.backgroundColor = highlightColor;
@@ -98,9 +100,10 @@ batchRange.oninput = function () {
         highlightCustom.style.backgroundColor = highlightColor;
         highlightScout.style.backgroundColor = defaultColor;
     }
+	*/
 
     windwardRecommendsPagesBatch(this.value);
-    scoutPlan(this.value);
+    //scoutPlan(this.value);
     payPerServer(this.value);
     maxPages = this.value;
     serverOrReport();
@@ -120,7 +123,8 @@ immediateRange.oninput = function () {
     //Update prices
     var highlightScout = document.getElementById("tableIn");
     var highlightCustom = document.getElementById("product");
-
+	
+	/*
     //If range value is less than or equal to 60,000 -> highlight Scout table row and rever Custom table row
     if (this.value <= 60000) {
         highlightScout.style.backgroundColor = highlightColor;
@@ -132,9 +136,10 @@ immediateRange.oninput = function () {
         highlightCustom.style.backgroundColor = highlightColor;
         highlightScout.style.backgroundColor = defaultColor;
     }
+	*/
 
     windwardRecommendsPagesImmediate(this.value);
-    scoutPlan(this.value);
+    //scoutPlan(this.value);
     payPerServer(this.value);
     maxPages = this.value;
     serverOrReport();
@@ -157,7 +162,8 @@ hoursRange.oninput = function () {
     //Update prices
     var highlightScout = document.getElementById("tableIn");
     var highlightCustom = document.getElementById("product");
-
+	
+	/*
     //If range value is less than or equal to 60,000 -> highlight Scout table row and rever Custom table row
     if (this.value <= 60000) {
         highlightScout.style.backgroundColor = highlightColor;
@@ -169,7 +175,8 @@ hoursRange.oninput = function () {
         highlightCustom.style.backgroundColor = highlightColor;
         highlightScout.style.backgroundColor = defaultColor;
     }
-
+	*/
+	
     windwardRecommendsPagesBatch(this.value);
 }
 
@@ -190,7 +197,8 @@ minutesRange.oninput = function () {
     //Update prices
     var highlightScout = document.getElementById("tableIn");
     var highlightCustom = document.getElementById("product");
-
+	
+	/*
     //If range value is less than or equal to 60,000 -> highlight Scout table row and rever Custom table row
     if (this.value <= 60000) {
         highlightScout.style.backgroundColor = highlightColor;
@@ -202,6 +210,7 @@ minutesRange.oninput = function () {
         highlightCustom.style.backgroundColor = highlightColor;
         highlightScout.style.backgroundColor = defaultColor;
     }
+	*/
 
     windwardRecommendsPagesImmediate(this.value);
 }
@@ -240,7 +249,7 @@ designerRange.oninput = function () {
         windwardRecommendsPagesBatch(maxPages);
     }
 
-    scoutPlan(maxPages);
+    //scoutPlan(maxPages);
     payPerServer(maxPages);
 }
 
@@ -257,7 +266,7 @@ window.onload = function () {
     document.getElementById("hoursMinutesRangeMax").innerHTML = "5,000";
     document.getElementById("immediateBatchRangeMin").innerHTML = "5,000";
     windwardRecommendsPagesImmediate(immediateRange.value);
-
+/*
     document.getElementById("scoutDesigners").innerHTML = numDesigners;
     document.getElementById("designersScoutMonthly").innerHTML = "$" + pricePerDesignerMonthly;
     document.getElementById("designersScoutQuarterly").innerHTML = "$" + pricePerDesignerQuarterly;
@@ -265,7 +274,7 @@ window.onload = function () {
     document.getElementById("scoutTotalMonthly").innerHTML = "$" + scoutTotalMonthly_Bronze.toLocaleString();
     document.getElementById("scoutTotalQuarterly").innerHTML = "$" + scoutTotalQuarterly_Bronze.toLocaleString();
     document.getElementById("scoutTotalAnnually").innerHTML = "$" + scoutTotalAnnually_Bronze.toLocaleString();
-
+*/
     document.getElementById("customDesigners").innerHTML = numDesigners;
     document.getElementById("customServers").innerHTML = numServers;
     document.getElementById("customCores").innerHTML = 2;
@@ -519,6 +528,7 @@ function windwardRecommendsPagesBatch(pagesBatch) {
     displayWindwardRecommends(servers, designers, cores);
 }
 
+/*
 //If total number of pages is within any of these values, change the scout plan accordingly
 function scoutPlan(maxPages) {
     if (maxPages <= 5000) {
@@ -562,6 +572,7 @@ function scoutPlan(maxPages) {
         document.getElementById("scoutTotalAnnually").innerHTML = "$" + (scoutTotalAnnually_Platinum + (numDesigners - 1) * pricePerDesignerAnnually).toLocaleString();
     }
 }
+*/
 
 function payPerServer(maxPages) {
     if (maxPages <= 60000) {
