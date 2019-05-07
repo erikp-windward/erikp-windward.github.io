@@ -1,34 +1,34 @@
 //Pricing Page Slider For Windward Studios
 //All Prices To Be Changed
-var pricePerDesignerMonthly = 60;
-var pricePerDesignerQuarterly = 162;
-var pricePerDesignerAnnually = 612;
+var pricePerDesignerMonthly = 63;
+var pricePerDesignerQuarterly = 170;
+var pricePerDesignerAnnually = 642;
 
-var scoutTotalMonthly_Bronze = 209;
-var scoutTotalQuarterly_Bronze = 564;
-var scoutTotalAnnually_Bronze = 2131;
-var scoutTotalMonthly_Silver = 366;
-var scoutTotalQuarterly_Silver = 988;
-var scoutTotalAnnually_Silver = 3733;
-var scoutTotalMonthly_Gold = 549;
-var scoutTotalQuarterly_Gold = 1482;
-var scoutTotalAnnually_Gold = 5599;
-var scoutTotalMonthly_Platinum = 823;
-var scoutTotalQuarterly_Platinum = 2222;
-var scoutTotalAnnually_Platinum = 8394;
+var scoutTotalMonthly_Bronze = 219;
+var scoutTotalQuarterly_Bronze = 591;
+var scoutTotalAnnually_Bronze = 2233;
+var scoutTotalMonthly_Silver = 384;
+var scoutTotalQuarterly_Silver = 1036;
+var scoutTotalAnnually_Silver = 3916;
+var scoutTotalMonthly_Gold = 576;
+var scoutTotalQuarterly_Gold = 1555;
+var scoutTotalAnnually_Gold = 5875;
+var scoutTotalMonthly_Platinum = 864;
+var scoutTotalQuarterly_Platinum = 2332;
+var scoutTotalAnnually_Platinum = 8812;
 
-var customTotalMonthly_2Cores = 496;
-var customTotalQuarterly_2Cores = 1339;
-var customTotalAnnually_2Cores = 5059;
-var customTotalMonthly_4Cores = 744;
-var customTotalQuarterly_4Cores = 2008;
-var customTotalAnnually_4Cores = 7588;
-var customTotalMonthly_6Cores = 930;
-var customTotalQuarterly_6Cores = 2511;
-var customTotalAnnually_6Cores = 9486;
-var customTotalMonthly_8Cores = 1116;
-var customTotalQuarterly_8Cores = 3013;
-var customTotalAnnually_8Cores = 11383;
+var customTotalMonthly_2Cores = 521;
+var customTotalQuarterly_2Cores = 1406;
+var customTotalAnnually_2Cores = 5314;
+var customTotalMonthly_4Cores = 781;
+var customTotalQuarterly_4Cores = 2108;
+var customTotalAnnually_4Cores = 7966;
+var customTotalMonthly_6Cores = 977;
+var customTotalQuarterly_6Cores = 2637;
+var customTotalAnnually_6Cores = 9965;
+var customTotalMonthly_8Cores = 1172;
+var customTotalQuarterly_8Cores = 3164;
+var customTotalAnnually_8Cores = 11954;
 
 //Initialize variables from HTML side. Includes all the different range sliders used.
 var batchRange = document.getElementById("batchRange");
